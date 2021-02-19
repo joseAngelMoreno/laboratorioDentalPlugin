@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <record id="laboratorio_dental_plugin.trabajadores_plugin_model_form_inherit" model="ir.ui.view">
+
+      <field name="name"> Plugin de trabajadores</field>
+     
+      <field name="model">laboratorio_dental.trabajadores_model</field>
+     
+      <field name="inherit_id" ref="laboratorio_dental.listado_trabajadores_form"/>
+     
+      <field name="arch" type="xml">
+
+        <field name="poblacion" position="after">
+          <field name="edad"/>
+
+      </field>
+      </field >
+      </record>
+
+      
+
+      <record id="laboratorio_dental_plugin.trabajadores_plugin_model_tree_inherit" model="ir.ui.view">
+
+        <field name="name"> Plugin de trabajadores </field>
+       
+        <field name="model">laboratorio_dental.trabajadores_model</field>
+       
+        <field name="inherit_id" ref="laboratorio_dental.trabajadores_tree"/>
+       
+        <field name="arch" type="xml">
+  
+          <field name="apellidos" position="before">
+            <field name="edad"/>
+  
+        </field>
+        </field >
+        </record>
+
+
+
+
+
+      
+  </data>
+</odoo>
