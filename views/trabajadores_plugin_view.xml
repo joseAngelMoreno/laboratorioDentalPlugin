@@ -11,7 +11,7 @@
       <field name="arch" type="xml">
 
         <field name="poblacion" position="after">
-          <field name="edad"/>
+          <field name="encargado"/>
 
       </field>
       </field >
@@ -30,7 +30,7 @@
         <field name="arch" type="xml">
   
           <field name="apellidos" position="before">
-            <field name="edad"/>
+            <field name="encargado"/>
   
         </field>
         </field >

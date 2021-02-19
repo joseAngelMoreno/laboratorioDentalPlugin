@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from odoo.exceptions import ValidationError
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -9,11 +9,16 @@ class trabajadores_plugin_model(models.Model):
     _description = 'laboratorio_plugin'
 
 
-    edad=fields.Integer(string="Edad",required=True)
+    encargado=fields.Many2one("laboratorio_dental.trabajadores_model","Encargado")
 
-    @api.constrains("edad")
-    def esMayor(self):
-        if self.edad<16:
-            raise ValidationError("Debe tener al menos 16 años")
+
+    @api.constrains("encargado")
+    def noPuedeSerEncargado(self):
+        self.ensure_one()
+        for i in self.encargado:
+            if i.encargado==self.encargado:
+                raise ValidationError("El encargado no puede ser uno mismo")
+
+   
 
 
